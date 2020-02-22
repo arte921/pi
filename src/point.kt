@@ -1,7 +1,7 @@
 import kotlin.math.pow
 import kotlin.math.sqrt
 
-class Point {
+class point {
     var x: Double = 0.0
     var y: Double = 0.0
 
