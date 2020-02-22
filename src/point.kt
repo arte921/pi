@@ -1,7 +1,7 @@
 import kotlin.math.pow
 import kotlin.math.sqrt
 
-class point {
+class Point {
     var x: Double = 0.0
     var y: Double = 0.0
 
@@ -10,7 +10,7 @@ class point {
         y = Math.random()
     }
 
-    fun inCirkle(): Boolean{
+    fun inCircle(): Boolean{
         return sqrt(this.x.pow(2)+this.y.pow(2)) <= 1
     }
 }

@@ -1,4 +1,4 @@
-var cirkle: Double = 0.0
+var circle: Double = 0.0
 var total: Double = 10000000.0
 
 fun main(){
@@ -6,9 +6,9 @@ fun main(){
     val points = List(total.toInt()) {point()}
     println("randomized")
     points.forEach(){
-        if(it.inCirkle()){
-            cirkle++
+        if(it.inCircle()){
+            circle++
         }
     }
-    println(cirkle*4/total)
+    println(circle*4/total)
 }
