@@ -119,7 +119,7 @@ fun mcpi(): Double {
 }
 
 fun bpi(): Double {
-    dbpi = 0.0
+    dbpi = 10.0
     bpii = 0
     while (bpii < bpimax) {
         gamble = random() * 10.0
