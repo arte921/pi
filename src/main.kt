@@ -12,6 +12,7 @@ val cpimax: Double = 4000.0
 val bpimax: Double = 50000000.0
 val bbpmax: BigDecimal = 5000000.0.toBigDecimal()
 val gpimax: Double = 5000.0
+var collisionsmax: Int = 8
 
 var circle: Double = 0.0
 var bpi: Double = 0.0
@@ -29,13 +30,14 @@ var gpiy: Double = 0.0
 var gpic: Double = 0.0
 var currentFactor: Double = 1.0
 var preFactor: Double = 1.0
+var totalCollisions: Int = 0
 
 fun main() {
-    go = System.currentTimeMillis()
-    println("test = ${test(3.0)} in ${System.currentTimeMillis() - go} milliseconds.")
-
     println("Kotlin π ≈ $PI")
 
+    go = System.currentTimeMillis()
+    println("collisions = ${collisions()} in ${System.currentTimeMillis() - go} milliseconds.")
+/*
     go = System.currentTimeMillis()
     println("Simple e ≈ ${simplee()} in ${System.currentTimeMillis() - go} milliseconds.")
 
@@ -58,7 +60,7 @@ fun main() {
     println("Bogo π ≈ ${bpi()} in ${System.currentTimeMillis() - go} milliseconds.")
 
     go = System.currentTimeMillis()
-    println("Bruteforce π ≈ ${bfpi()} in ${System.currentTimeMillis() - go} milliseconds.")
+    println("Bruteforce π ≈ ${bfpi()} in ${System.currentTimeMillis() - go} milliseconds.")*/
 }
 
 fun bbp(): BigDecimal {
@@ -75,7 +77,20 @@ fun test(t: Double): Double {
     return 1 / 16.0.pow(t) * (4 / (8 * t + 1) - 2 / (8 * t + 4) - 1 / (8 * t + 5) - 1 / (8 * t + 6))
 }
 
-fun collisions(): Double
+fun collisions(): Int{
+    totalCollisions = 0
+
+    var bigCube: Cube = Cube(10.0,2.0,-1.0,100.0.pow(collisionsmax),1)
+    var smallCube: Cube = Cube(5.0,1.0,0.0,1.0,0)
+
+    while(!bigCube.isDone(smallCube)){
+        bigCube.move()
+        smallCube.move()
+        bigCube.checkcollide(smallCube)
+        smallCube.checkWall()
+    }
+    return totalCollisions
+}
 
 fun simplee(): Double {
     return (1 + 1 / en).pow(en)
