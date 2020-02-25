@@ -75,6 +75,8 @@ fun test(t: Double): Double {
     return 1 / 16.0.pow(t) * (4 / (8 * t + 1) - 2 / (8 * t + 4) - 1 / (8 * t + 5) - 1 / (8 * t + 6))
 }
 
+fun collisions(): Double
+
 fun simplee(): Double {
     return (1 + 1 / en).pow(en)
 }
