@@ -37,7 +37,7 @@ fun main() {
 
     go = System.currentTimeMillis()
     println("collisions = ${collisions()} in ${System.currentTimeMillis() - go} milliseconds.")
-/*
+
     go = System.currentTimeMillis()
     println("Simple e ≈ ${simplee()} in ${System.currentTimeMillis() - go} milliseconds.")
 
@@ -60,7 +60,7 @@ fun main() {
     println("Bogo π ≈ ${bpi()} in ${System.currentTimeMillis() - go} milliseconds.")
 
     go = System.currentTimeMillis()
-    println("Bruteforce π ≈ ${bfpi()} in ${System.currentTimeMillis() - go} milliseconds.")*/
+    println("Bruteforce π ≈ ${bfpi()} in ${System.currentTimeMillis() - go} milliseconds.")
 }
 
 fun bbp(): BigDecimal {
