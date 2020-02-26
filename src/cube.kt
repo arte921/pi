@@ -1,10 +1,10 @@
 class Cube(xcoord: Double, width: Double, velocity: Double, mass: Double, id: Int) {
-    private var x: Double = 0.0 //locatie
-    private var w: Double = 0.0 //breedte
-    private var v: Double = 0.0 //snelheid
-    private var m: Double = 0.0 //massa
-    private var u: Double = 0.0 //backup snelheid
-    private var id: Int = 0
+    var x: Double = 0.0 //locatie
+    var w: Double = 0.0 //breedte
+    var v: Double = 0.0 //snelheid
+    var m: Double = 0.0 //massa
+    var u: Double = 0.0 //backup snelheid
+    var id: Int = 0
 
     init {
         this.x = xcoord
@@ -32,9 +32,9 @@ class Cube(xcoord: Double, width: Double, velocity: Double, mass: Double, id: In
         }else{
             other.x = (other.x+other.w+this.x)/2-other.w
         }
-
-
         totalCollisions++
+
+
     }
 
     fun checkWall(){
@@ -42,11 +42,15 @@ class Cube(xcoord: Double, width: Double, velocity: Double, mass: Double, id: In
     }
 
     fun move(){
-        this.x += this.v * 0.01
+        this.x += this.v * 0.1 / 10000
     }
 
     fun isDone(other: Cube): Boolean{
-        return other.v <= this.v && this.v > 0 && other.v > 0
+        return if(this.id > other.id){
+            other.v <= this.v && this.v > 0 && other.v > 0
+        }else{
+            this.v <= other.v && other.v > 0 && this.v > 0
+        }
     }
 
     fun collideWall(){
